@@ -1,0 +1,24 @@
+{% extends "layout.html" %}{% block content %}
+<div class="card">
+  <form method="post" action="/predict">
+    <div class="form-grid">
+      <div><label>Ticker</label><input name="ticker" value="AAPL" required/></div>
+      <div><label>History days</label><input name="days" type="number" value="1200"/></div>
+
+
+      <div style="grid-column:1 / -1;">
+        <label>Queries (comma separated)</label>
+        <input name="queries" value="Apple Inc, iPhone, Tim Cook"/>
+      </div>
+
+      <div style="grid-column:1 / -1;">
+        <label>Mode</label>
+        <label><input type="radio" name="mode" value="reuse" checked/> Reuse Saved Model (fast)</label>
+        <label><input type="radio" name="mode" value="train"/> Full Retrain </label>
+      </div>
+
+      <div style="grid-column:1 / -1;"><button type="submit">Run Prediction</button></div>
+    </div>
+  </form>
+</div>
+{% endblock %}
